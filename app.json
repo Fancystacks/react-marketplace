@@ -23,6 +23,8 @@
     ],
     "ios": {
       "supportsTablet": true
-    }
+    },
+    "description": "A marketplace in which pre-owned and no longer wanted items can be sold.",
+    "githubUrl": "https://github.com/Fancystacks/react-marketplace"
   }
 }
