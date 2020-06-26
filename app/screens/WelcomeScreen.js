@@ -6,11 +6,10 @@ function WelcomeScreen(props) {
         <ImageBackground 
         style={styles.background}
         source={require('../assets/wallpaper.jpg')}>
-        <View>
-            
-        </View>
-    <Text>The Fast and Easy Way to Sell and Buy</Text>
+        <View style={styles.logoContainer}>
     <Image style={styles.logo} source ={require('../assets/trolly.png')}/>
+    <Text>The Fast and Easy Way to Sell and Buy</Text>
+        </View>
     
         <View style={styles.loginButton}></View>
         <View style={styles.registerButton}></View>
@@ -34,8 +33,11 @@ const styles = StyleSheet.create({
     logo: {
         width: 150,
         height: 120,
+    },
+    logoContainer: {
         position: "absolute",
-        top: 30
+        top: 30,
+        alignItems: "center"
     },
     registerButton: {
         width: '100%',
