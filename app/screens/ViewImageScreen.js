@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
     },
     deleteIcon: {
         width: 50,
-        backgroundColor: 'red',
+        backgroundColor: '#000',
         position: 'absolute',
         height: 50,
         top: 40,
@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
     },
     image: {
      width: '100%',
-     opacity: .8,
+     opacity: .6,
      height: '100%'
  }
 });
