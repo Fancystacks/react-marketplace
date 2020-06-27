@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
         fontWeight: '500'
     },
     userContainer: {
-        marginVertical: 50
+        marginVertical: 30
     }
 })
 
