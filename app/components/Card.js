@@ -20,7 +20,8 @@ const styles = StyleSheet.create({
     card: {
         borderRadius: 12,
         backgroundColor: colors.white,
-        marginBottom: 20
+        marginBottom: 20,
+        overflow: 'hidden'
     },
     detailsContainer:{
         padding: 20
