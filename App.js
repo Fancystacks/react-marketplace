@@ -1,10 +1,12 @@
-import React from 'react';
-import ListItem from './app/components/ListItem';
-import ListingsScreen from "./app/screens/ListingsScreen";
+import React, {useState} from 'react';
+import AppTextInput from './app/components/AppTextInput';
+import Screen from "./app/components/Screen";
 
 export default function App() {
-  
+
   return (
- <ListingsScreen/>
+    <Screen>
+      <AppTextInput placeholder="Walrus" icon="email"/>
+    </Screen>
     );
   }
