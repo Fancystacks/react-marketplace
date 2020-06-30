@@ -1,15 +1,15 @@
 import React from 'react';
-import { View } from 'react-native';
 import Screen from './app/components/Screen';
+import ListItem from './app/components/ListItem';
 import Icon from './app/components/Icon';
 
 export default function App() {
   
   return (
   <Screen>
-    <Icon
-    name="mailbox"
-    />
+    <ListItem 
+    title="My title" 
+    ImageComponent={<Icon name="mailbox"/>}/>
   </Screen>
     );
   }
