@@ -6,6 +6,7 @@ import { AppForm, AppFormField, SubmitButton } from '../components/forms';
 import Screen from '../components/Screen';
 
 const validationSchema = Yup.object().shape({
+    name: Yup.string().required().min(2).label("Name"),
     email: Yup.string().required().email().label("Email"),
     password: Yup.string().required().matches(
         /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/,
@@ -13,19 +14,24 @@ const validationSchema = Yup.object().shape({
     ).min(8).label("Password")
 });
 
-function LoginScreen(props) {
+function RegisterScreen(props) {
 
     return (
         <Screen style={styles.container}>
-            <Image
-                style={styles.logo}
-                source={require("../assets/trolly.png")}
-            />
             <AppForm
-                initialValues={{ email: '', password: '' }}
+                initialValues={{ name: '', email: '', password: '' }}
                 onSubmit={values => console.log(values)}
                 validationSchema={validationSchema} 
                 >
+                         <AppFormField
+                            autoCapitalize="none"
+                            autoCorrect={false}
+                            icon="account"
+                            keyboardType="default"
+                            name="name"
+                            placeholder="Name"
+                            textContentType="name" 
+                        />
                         <AppFormField
                             autoCapitalize="none"
                             autoCorrect={false}
@@ -44,7 +50,7 @@ function LoginScreen(props) {
                             secureTextEntry
                             textContentType="password"
                         />
-                        <SubmitButton title="LOG IN" />
+                        <SubmitButton title="REGISTER" />
             </AppForm>
         </Screen>
     );
@@ -63,4 +69,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default LoginScreen;
+export default RegisterScreen;
