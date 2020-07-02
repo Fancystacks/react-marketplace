@@ -23,6 +23,10 @@ function RegisterScreen(props) {
                 onSubmit={values => console.log(values)}
                 validationSchema={validationSchema} 
                 >
+                     <Image
+                style={styles.logo}
+                source={require("../assets/trolly.png")}
+            />
                          <AppFormField
                             autoCapitalize="none"
                             autoCorrect={false}
@@ -61,8 +65,8 @@ const styles = StyleSheet.create({
         padding: 13
     },
     logo: {
-        width: 130,
-        height: 105,
+        width: 110,
+        height: 95,
         alignSelf: 'center',
         marginTop: 50,
         marginBottom: 20
