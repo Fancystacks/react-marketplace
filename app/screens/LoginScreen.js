@@ -1,0 +1,53 @@
+import React, { useState } from 'react';
+import { StyleSheet, Image } from "react-native";
+
+import Screen from '../components/Screen';
+import AppTextInput from '../components/AppTextInput';
+import AppButton from '../components/AppButton';
+
+function LoginScreen(props) {
+    const [email, setEmail] = useState();
+    const [password, setPassword] = useState();
+
+    return (
+        <Screen style={styles.container}>
+            <Image 
+            style={styles.logo}
+            source ={require("../assets/trolly.png")} />
+            <AppTextInput
+            autoCapitalize="none"
+            autoCorrect={false}
+            icon="email-outline"
+            keyboardType="email-address"
+            onChangeText={text => setEmail(text)}
+            placeholder="Email"
+            textContentType="emailAddress" // iOS fill from keychain
+            />
+            <AppTextInput
+            autoCapitalize="none"
+            autoCorrect={false}
+            icon="lock-outline"
+            placeholder="Password"
+            onChangeText={text => setPassword(text)}
+            secureTextEntry
+            textContentType="password"
+            />
+        <AppButton title="LOG IN" onPress={() => console.log(email, password)} />
+        </Screen>
+    );
+}
+
+const styles = StyleSheet.create({
+    container: {
+        padding: 13
+    },
+    logo: {
+        width: 130,
+        height: 105,
+        alignSelf: 'center',
+        marginTop: 50,
+        marginBottom: 20
+    }
+});
+
+export default LoginScreen;
