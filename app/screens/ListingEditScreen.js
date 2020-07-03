@@ -30,7 +30,7 @@ function ListingEditScreen(props) {
                      <AppFormField
                             icon="feature-search-outline"
                             keyboardType="default"
-                            maxLength={5}
+                            maxLength={50}
                             name="title"
                             placeholder="Title"
                         />
