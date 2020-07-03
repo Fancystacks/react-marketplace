@@ -9,13 +9,18 @@ import Screen from "../components/Screen";
 import { TouchableWithoutFeedback, FlatList } from 'react-native-gesture-handler';
 import PickerItem from './PickerItem';
 
-function AppPicker({ icon, items, onSelectItem, placeholder, selectedItem }) {
+function AppPicker({ icon, items, onSelectItem, placeholder, selectedItem, width = '100%' }) {
     const [modalVisible, setModalVisible] = useState(false);
     return (
         <>
             <TouchableWithoutFeedback onPress={() => setModalVisible(true)}>
-                <View style={styles.container}>
-                    {icon && <MaterialCommunityIcons name={icon} size={20} color={colors.medium} style={styles.icon} />}
+                <View style={[styles.container, { width }]}>
+                    {icon && ( 
+                    <MaterialCommunityIcons 
+                    name={icon} 
+                    size={20} 
+                    color={colors.medium} 
+                    style={styles.icon} /> )}
                     {selectedItem ? ( <AppText style={styles.text}>{selectedItem.label}</AppText> 
                     ) : ( <AppText style={styles.placeholder}>{placeholder}</AppText> )}
                     <MaterialCommunityIcons name="chevron-down" size={20} color={colors.medium} />
@@ -45,7 +50,6 @@ const styles = StyleSheet.create({
         backgroundColor: colors.light,
         borderRadius: 25,
         flexDirection: "row",
-        width: '100%',
         padding: 15,
         marginVertical: 10
     },

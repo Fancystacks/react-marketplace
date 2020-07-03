@@ -34,19 +34,21 @@ function ListingEditScreen(props) {
                             name="title"
                             placeholder="Title"
                         />
-                        <AppFormPicker
-                        items={categories}
-                        name="category"
-                        placeholder="Category"
-                        />
-                         <AppFormField
-                            autoCapitalize="none"
-                            autoCorrect={false}
-                            icon="cash"
-                            keyboardType="numeric"
-                            name="price"
-                            placeholder="Price"
-                        />
+                           <AppFormPicker
+                           items={categories}
+                           name="category"
+                           placeholder="Category"
+                           width='50%'
+                           />
+                        <AppFormField
+                           autoCapitalize="none"
+                           autoCorrect={false}
+                           icon="cash"
+                           keyboardType="numeric"
+                           name="price"
+                           placeholder="Price"
+                           width='35%'
+                       />
                         <AppFormField
                             numberOfLines={2}
                             maxLength={250}
