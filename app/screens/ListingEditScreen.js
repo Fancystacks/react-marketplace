@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { StyleSheet } from 'react-native';
 import * as Yup from 'yup';
-import * as Location from 'expo-location';
 
 import { AppForm, AppFormField, SubmitButton } from '../components/forms';
 import AppFormPicker from '../components/forms/AppFormPicker';
