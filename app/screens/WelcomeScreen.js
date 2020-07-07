@@ -1,5 +1,7 @@
 import React from 'react';
 import { ImageBackground, StyleSheet, View, Image, Text } from 'react-native';
+
+import routes from "../navigation/routes";
 import AppButton from '../components/AppButton';
 import colors from '../config/colors';
 
@@ -14,8 +16,8 @@ function WelcomeScreen({ navigation }) {
     <Image style={styles.logo} source ={require('../assets/trolly.png')}/>
         </View>
         <View style={styles.buttonContainer}>
-        <AppButton title="Log In" onPress={() => navigation.navigate("Login")} />
-        <AppButton title="Register" color='secondary' onPress={() => navigation.navigate("Register")}/>
+        <AppButton title="Log In" onPress={() => navigation.navigate(routes.LOGIN)} />
+        <AppButton title="Register" color='secondary' onPress={() => navigation.navigate(routes.REGISTER)}/>
         </View>
         </ImageBackground>
     );
