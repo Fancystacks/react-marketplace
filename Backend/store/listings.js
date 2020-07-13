@@ -1,7 +1,7 @@
 const listings = [
   {
     id: 201,
-    title: "Red jacket",
+    title: "Bomber jacket",
     images: [{ fileName: "jacket1" }],
     price: 100,
     categoryId: 5,
