@@ -4,6 +4,7 @@ import { FlatList, StyleSheet } from 'react-native';
 import Button from "../components/AppButton";
 import Card from "../components/Card";
 import colors from '../config/colors';
+import ActivityIndicator from '../components/ActivityIndicator';
 import listingsApi from '../api/listings';
 import routes from "../navigation/routes";
 import Screen from "../components/Screen";
@@ -31,6 +32,7 @@ function ListingsScreen({ navigation }) {
             <AppText>Unable to load listings.</AppText>
             <Button title="Retry" onPress={loadListings}/>
             </>}
+            <ActivityIndicator visible={loading} />
             <FlatList
             data={listings}
             keyExtractor={listing => listing.id.toString()}
