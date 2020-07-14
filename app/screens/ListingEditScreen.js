@@ -42,19 +42,20 @@ function ListingEditScreen() {
        const result = await listingsApi.addListing(
            { ...listing, location },
            progress => setProgress(progress));
-           setUploadVisible(false);
 
        if (!result.ok) {
+           setUploadVisible(false);
            alert('Unable to save the listing');
            return;
-       } else {
-           alert('Listing posted');
        }
    }
 
     return (
         <Screen>
-            <UploadScreen progress={progress} visible={uploadVisible}/>
+            <UploadScreen 
+            onDone={() => setUploadVisible(false)} 
+            progress={progress} 
+            visible={uploadVisible}/>
              <AppForm
                 initialValues={{ 
                     images: [],
