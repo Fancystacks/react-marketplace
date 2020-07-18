@@ -7,6 +7,8 @@ import Screen from '../components/Screen';
 import usersApi from '../api/users';
 import useAuth from '../auth/useAuth';
 import authApi from '../api/auth';
+import useApi from '../hooks/useApi';
+import ActivityIndicator from '../components/ActivityIndicator';
 
 const validationSchema = Yup.object().shape({
     name: Yup.string().required().min(2).label("Name"),
@@ -18,11 +20,13 @@ const validationSchema = Yup.object().shape({
 });
 
 function RegisterScreen(props) {
+    const registerApi = useApi(usersApi.register);
+    const loginApi = useApi(authApi.login);
     const auth = useAuth();
     const [error, setError] = useState();
 
     const handleSubmit = async (userInfo) => {
-        const result = await usersApi.register(userInfo);
+        const result = await registerApi.request(userInfo);
 
         if (!result.ok) {
             if (result.data) setError(result.data.error);
@@ -33,7 +37,7 @@ function RegisterScreen(props) {
             return;
         }
 
-        const { data: authToken } = await authApi.login(
+        const { data: authToken } = await loginApi.request(
             userInfo.email,
             userInfo.password
         );
@@ -41,47 +45,50 @@ function RegisterScreen(props) {
     }
 
     return (
-        <Screen style={styles.container}>
-            <AppForm
-                initialValues={{ name: '', email: '', password: '' }}
-                onSubmit={handleSubmit}
-                validationSchema={validationSchema} 
+        <>
+            <ActivityIndicator visible={loginApi.loading || registerApi.loading} />
+                <Screen style={styles.container}>
+                <AppForm
+                    initialValues={{ name: '', email: '', password: '' }}
+                    onSubmit={handleSubmit}
+                    validationSchema={validationSchema}
                 >
                     <ErrorMessage error={error} visible={error} />
-                     <Image
-                style={styles.logo}
-                source={require("../assets/trolly.png")}
-            />
-                         <AppFormField
-                            autoCapitalize="none"
-                            autoCorrect={false}
-                            icon="account"
-                            keyboardType="default"
-                            name="name"
-                            placeholder="Name"
-                            textContentType="name" 
-                        />
-                        <AppFormField
-                            autoCapitalize="none"
-                            autoCorrect={false}
-                            icon="email-outline"
-                            keyboardType="email-address"
-                            name="email"
-                            placeholder="Email"
-                            textContentType="emailAddress" // iOS fill from keychain
-                        />
-                        <AppFormField
-                            autoCapitalize="none"
-                            autoCorrect={false}
-                            icon="lock-outline"
-                            name="password"
-                            placeholder="Password"
-                            secureTextEntry
-                            textContentType="password"
-                        />
-                        <SubmitButton title="REGISTER" />
-            </AppForm>
-        </Screen>
+                    <Image
+                        style={styles.logo}
+                        source={require("../assets/trolly.png")}
+                    />
+                    <AppFormField
+                        autoCapitalize="none"
+                        autoCorrect={false}
+                        icon="account"
+                        keyboardType="default"
+                        name="name"
+                        placeholder="Name"
+                        textContentType="name"
+                    />
+                    <AppFormField
+                        autoCapitalize="none"
+                        autoCorrect={false}
+                        icon="email-outline"
+                        keyboardType="email-address"
+                        name="email"
+                        placeholder="Email"
+                        textContentType="emailAddress" // iOS fill from keychain
+                    />
+                    <AppFormField
+                        autoCapitalize="none"
+                        autoCorrect={false}
+                        icon="lock-outline"
+                        name="password"
+                        placeholder="Password"
+                        secureTextEntry
+                        textContentType="password"
+                    />
+                    <SubmitButton title="REGISTER" />
+                </AppForm>
+            </Screen>
+        </>
     );
 }
 
