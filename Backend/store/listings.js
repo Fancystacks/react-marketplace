@@ -13,7 +13,7 @@ const listings = [
   },
   {
     id: 3,
-    title: "Gray couch in a great condition",
+    title: "White couch",
     images: [{ fileName: "couch2" }],
     categoryId: 1,
     price: 1200,
@@ -25,9 +25,9 @@ const listings = [
   },
   {
     id: 1,
-    title: "Room & Board couch (great condition) - delivery included",
+    title: "Sectional couch (great condition)",
     description:
-      "I'm selling my furniture at a discount price. Pick up at Venice. DM me asap.",
+      "I'm selling my furniture at a discount price. Pick up in Denver.",
     images: [
       { fileName: "couch1" },
       { fileName: "couch2" },
