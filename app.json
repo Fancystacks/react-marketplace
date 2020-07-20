@@ -2,7 +2,11 @@
   "expo": {
     "name": "react-marketplace",
     "slug": "react-marketplace",
-    "platforms": ["ios", "android", "web"],
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./app/assets/trolly.png",
@@ -14,11 +18,26 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
       "supportsTablet": true
     },
     "description": "A marketplace in which pre-owned and no longer wanted items can be sold.",
-    "githubUrl": "https://github.com/Fancystacks/react-marketplace"
+    "githubUrl": "https://github.com/Fancystacks/react-marketplace",
+    "extra": {
+      "bugsnag": {
+        "apiKey": "23165a13ce62f2069f8900bab73a1109"
+      }
+    },
+    "hooks": {
+      "postPublish": [
+        {
+          "file": "@bugsnag/expo/hooks/post-publish.js",
+          "config": {}
+        }
+      ]
+    }
   }
 }
