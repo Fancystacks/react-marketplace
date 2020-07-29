@@ -40,7 +40,7 @@ function MyAccountScreen({ navigation }) {
             <View>
                 <FlatList
                     data={menuItems}
-                    keyExtractor={menuItem => menuItem.title}
+                    keyExtractor={item => item.title}
                     ItemSeparatorComponent={ListItemSeparator}
                     renderItem={({ item }) =>
                         <ListItem

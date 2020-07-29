@@ -8,7 +8,7 @@ import colors from '../config/colors';
 function WelcomeScreen({ navigation }) {
     return (
         <ImageBackground 
-        blurRadius={5}
+        blurRadius={6}
         style={styles.background}
         source={require('../assets/wallpaper.jpg')}>
         <View style={styles.logoContainer}>
